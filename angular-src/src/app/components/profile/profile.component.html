@@ -1,0 +1,52 @@
+<div *ngIf="user">
+    <div class="row">
+      		<div class="col-sm-10"><h1>{{user.name}}</h1></div>
+        </div>
+        <div class="row">
+      	 <div class="col-sm-3"><!--left col-->
+              <div class="text-center">
+                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                <h6>Upload a different photo...</h6>
+
+              </div>
+         <!--<form (submit)="onImageSubmit()" enctype="multipart/form-data">
+              <div class="custom-file mb-3">
+                <input type="file" name="file" id="file" class="custom-file-input">
+                <label for="file" class="custom-file-label">Choose file</label>
+              </div>
+              <input type="submit" value="Submit" class="btn btn-primary">
+          </form>-->
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+
+          <button type="button" class="btn btn-success btn-s"
+            (click)="uploader.uploadAll()"
+            [disabled]="!uploader.getNotUploadedItems().length" >
+                Upload an Image
+          </button>
+          <br>
+          <ul class="list-group">
+                      <li class="list-group-item text-muted">Stats <i class="fa fa-dashboard fa-1x"></i></li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong>Height</strong></span> 5'10</li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong>Weight</strong></span> 150 lbs</li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong>Gender</strong></span> Male</li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong>Age</strong></span> 18</li>
+                    </ul>
+          </div>
+            <br>
+            <ul class="list-group">
+            <li class="list-group-item">Name : {{user.name}}</li>
+            <li class="list-group-item">Email : {{user.email}}</li>
+            </ul>
+            <h2>Activity Feed</h2>
+            <div class="activity-feed">
+              <div class="feed-item">
+                <div class="date">Sep 25</div>
+                <div class="text">Responded to a request <a href="www.ptrainer.com/events/2011810">“Looking for tennis players”</a></div>
+              </div>
+              <div class="feed-item">
+                <div class="date">Sep 24</div>
+                <div class="text">Added an interest “Tennis”</div>
+              </div>
+            </div>
+        </div>
+</div>
